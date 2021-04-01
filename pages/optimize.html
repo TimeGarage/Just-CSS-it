@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>性能优化</title>
+</head>
+<body>
+    <h1 class="title">Quesiton1: 实现<span class="main">防抖节流函数</span></h1>
+    <div class="area" id="normal"></div>
+    <span class="info">无优化版本</span>
+    <div class="area" id="debounce"></div>
+    <span class="info">防抖版本</span>
+    <div class="area" id="throttle"></div>
+    <span class="info">节流版本</span>
+    <h1 class="title">Quesiton2: <span class="main">Document Fragment</span></h1>
+    <div class="insert" id="fragment1"></div>
+    <span class="info"></span>
+    <div class="insert" id="fragment2"></div>
+    <span class="info"></span>
+    <h1 class="title">Quesiton3: 实现一个<span class="main">事件委托</span></h1>
+    <div class="insert">
+        <ul id="parent">
+            <li id="child1">list1</li>
+            <li id="child2">list2</li>
+            <li id="child3">list3</li>
+        </ul>
+    </div>
+</body>
+<style>
+    .area {
+        margin: 0 auto;
+        width: 600px;
+        height: 150px;
+        box-sizing: border-box;
+        background-color: lightseagreen;
+        color: white;
+        text-align: center;
+        font-size: 36px;
+        line-height: 150px;
+    }
+
+    .insert {
+        width: 600px;
+        height: 200px;
+        box-sizing: border-box;
+        border: 3px solid lightslategrey;
+        margin: 0 auto;
+        overflow: scroll;
+    }
+</style>
+<script src="../script/optimize/count.js"></script>
+<script src="../script/optimize/dom.js"></script>
+<script src="../script/events/propagation.js"></script>
+<script>
+    normalCount(document.getElementById('normal'))
+    debounceCount(document.getElementById('debounce'))
+    throttleCount(document.getElementById('throttle'))
+    document.querySelector('#fragment1+.info').innerHTML = insertDocFrag(document.getElementById('fragment1'), 20000)
+    document.querySelector('#fragment2+.info').innerHTML = insertDOM(document.getElementById('fragment2'), 20000)
+    addClickListener(document.getElementById('parent'))
+</script>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>常用布局</title>
+</head>
+<body>
+    <h1 class="title">Question1: 如何实现<span class="main">圣杯布局</span></h1>
+    <header>header</header>
+    <div class="exhibit flex">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <footer>copyright 2021</footer>
+    <span class="info">使用弹性盒模型实现</span>
+    <header>header</header>
+    <div class="exhibit float">
+        <div class="center"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <footer>copyright 2021</footer>
+    <span class="info">使用标准盒模型实现</span>
+</body>
+<style>
+    .exhibit {
+        overflow: auto;
+        margin: 0 auto;
+        height: 500px;
+        background-color: white;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .float {
+        position: relative;
+        display: block;
+    }
+
+    .exhibit.flex >.left {
+        flex: 0 0 200px;
+        order: 1;
+        background-color: lightslategray;
+    }
+
+    .exhibit.flex>.center {
+        flex: 1;
+        order: 2;
+        background-color: lightseagreen;
+    }
+
+    .exhibit.flex>.right {
+        flex: 0 0 200px;
+        order: 3;
+        background-color: lightslategray;
+    }
+
+    .exhibit.float>.left {
+        float: left;
+        width: 200px;
+        height: 100%;
+        background-color: lightslategray;
+    }
+
+    .exhibit.float>.center {
+        position: absolute;
+        left: 200px;
+        right: 200px;
+        height: 100%;
+        margin: auto;
+        background-color: lightseagreen;
+    }
+
+    .exhibit.float>.right {
+        float: right;
+        width: 200px;
+        height: 100%;
+        background-color: lightslategray;
+    }
+
+    header,footer {
+        font-weight: 100;
+        color: white;
+        text-align: center;
+        background-color: darkgray;
+    }
+
+</style>
+</html>

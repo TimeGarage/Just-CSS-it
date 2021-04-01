@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>BFC特性</title>
+</head>
+<body>
+    <h1 class="title">Feature1: 同一<span class="main">BFC</span>下外边距会发生折叠</h1>
+    <div class="f1">        
+        <div class="collapse"><span>margin-bottom: 50px</span></div>
+        <div class="collapse"><span>margin-top: 10px</span></div>
+    </div>
+    <span class="info">将两个div块的margin-top设置为10px，margin-bottom设置为50px，由于同处于一个BFC下，因此两个div块的距离为50px而非60px。</span>
+    <div class="f1 overFlow">
+        <div class="collapse"><span>margin-bottom: 50px</span></div>
+    </div>
+    <div class="f1 overFlow">
+        <div class="collapse"><span>margin-top: 10px</span></div>
+    </div>
+    <span class="info">将两个div块置于不同的BFC下，边距折叠现象消失。</span>
+    <h1 class="title">Feature2: <span class="main">BFC</span>可以包含浮动元素</h1>
+    <div class="f1 overFlow">
+        <div class="floatLeft"></div>
+    </div>
+    <span class="info">仔细观察可以发现BFC区域被浮动元素的高度撑开</span>
+    <h1 class="title">Feature3: <span class="main">BFC</span>可以阻止元素被浮动元素覆盖</h1>
+    <div class="f1 overFlow gap">
+        <div class="floatLeft">我是一个左浮动的元素</div>
+        <div class="noFloat">我是一个没有设置浮动, 也没有触发 BFC 元素。可以发现我的左上角被浮动元素所覆盖。</div>
+    </div>
+    <div class="f1 overFlow">
+        <div class="floatLeft">我是一个左浮动的元素</div>
+        <div class="noFloat overFlow">我是一个BFC 元素，可以发现我没有被浮动元素所覆盖。</div>
+    </div>
+    <span class="info">利用BFC特性可以清除浮动</span>
+</body>
+<style>
+    .f1 {
+        width: 60%;
+        margin: 0 auto;
+        background-color: #fefefe;
+        border: 1px solid lightgray;
+    }
+
+    .collapse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        margin: 10px auto 50px;
+        background-color: lightseagreen;
+    }
+
+    .overFlow {
+        overflow: hidden;
+    }
+
+    .collapse span {
+        color: white;
+        background-color: lightseagreen;
+    }
+
+    .floatLeft {
+        color: white;
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: lightseagreen;
+    }
+
+    .noFloat {
+        width: 200px; 
+        height: 200px;
+        background: #eee
+    }
+
+    .gap {
+        margin-bottom: 30px;
+    }
+</style>
+</html>

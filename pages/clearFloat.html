@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>清除浮动</title>
+</head>
+<body>
+    <h1 class="title">Question1: 什么是<span class="main">浮动？</span></h1>
+    <div class="outer">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+    </div>
+    <span class="info" style="padding-top: 15px">注意：由于内层div浮动脱离了文档流导致外层div高度塌陷</span>
+    <h1 class="title">Question2: 如何清除<span class="main">浮动？</span></h1>
+    <div class="outer">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+        <div class="clear"></div>
+    </div>
+    <span class="info">方法1：添加div元素并设置clear:both</span>
+    <div class="outer overFlow">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+    </div>
+    <span class="info">方法2：向外层div添加overflow: auto或hidden</span>
+    <div class="outer clearfix">
+        <div class="first">1</div>
+        <div class="second">2</div>
+        <div class="third">3</div>
+    </div>
+    <span class="info">方法3：添加伪元素</span>
+</body>
+<style>
+    .outer {
+        background-color: lightslategrey;
+        border: 2px dashed lightgray;
+        margin: 0 auto;
+        width: 60%;
+    }
+    
+    .first {
+        text-align: center;
+        line-height: 80px;
+        width: 80px;
+        height: 80px;
+        background-color: coral;
+        float: left;
+    }
+
+    .second {
+        text-align: center;
+        line-height: 80px;
+        width: 80px;
+        height: 80px;
+        background-color: yellowgreen;
+        float:left
+    }
+
+    .third {
+        text-align: center;
+        line-height: 80px;
+        width: 80px;
+        height: 80px;
+        background-color: teal;
+        float:left;
+    }
+
+    .clear {
+        clear:both;
+        height: 0;
+    }
+
+    .overFlow {
+        overflow: auto;
+    }
+
+    .clearfix::after {
+        clear:both;
+        content: '';
+        display: block;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .info {
+        clear:both;
+    }
+</style>
+</html>

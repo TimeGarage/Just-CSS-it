@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>弹性盒模型</title>
+</head>
+<body>
+    <h1 class="title">Question1: <span class="main">flex: 1具体代表什么？</span></h1>
+    <div class="outer">
+        <div class="inner">TEST1TEST1TEST1</div>
+        <div class="inner">TEST2TEST2</div>
+        <div class="inner">TEST1</div>
+    </div>  
+</body>
+<style>
+    .outer {
+    display: flex;
+    margin: 0 auto;
+    background-color: #4CAF50;
+}
+
+.inner {
+    flex: 1 1 0%;
+    font-size: 36px;
+    height: 100px;
+    background-color: antiquewhite;
+    border: 3px solid darkgray;
+}
+</style>
+</html>

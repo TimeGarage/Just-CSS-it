@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>Display属性</title>
+</head>
+<body>
+    <h1 class="title">Demo1: <span class="main">display: list-item</span></h1>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>  
+    <h1 class="title">Demo2: <span class="main">display: inline</span></h1>
+    <span class="info testInline">测试文字</span>
+</body>
+<style>
+    .outer {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    background-color: #4CAF50;
+}
+
+.inner {
+    display: list-item;
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: antiquewhite;
+    border: 3px solid darkgray;
+}
+
+.testInline {
+    display: inline !important;
+    border: 1px solid lightslategray;
+}
+</style>
+</html>

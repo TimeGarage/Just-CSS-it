@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <title>margin相关</title>
+</head>
+<body>
+    <h1 class="title">Question1: <span class="main">margin/padding</span> 设置百分比是相对谁的</h1>
+    <div class="outer">
+        <div class="inner">
+            <p></p>
+        </div>
+    </div>  
+</body>
+<style>
+.outer {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 200px;
+    background-color: #4CAF50;
+}
+
+.inner {
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    background-color: antiquewhite;
+    margin: 10%;
+}
+
+.inner p {
+    position: absolute;
+    background: transparent;
+    top: 50%;
+    transform: translateY(-50%);
+}
+</style>
+<script>
+    var inner = document.getElementsByClassName("inner")[0]
+    var innerParagraph = document.querySelector(".inner p")
+    innerParagraph.textContent = "inner margin:" + getComputedStyle(inner).marginTop
+</script>
+</html>
